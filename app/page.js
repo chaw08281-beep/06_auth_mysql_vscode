@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+ <h1>Auth Demo on Vercel</h1>
 // home page: links to every page in the project
 export default function Home() {
   return (
