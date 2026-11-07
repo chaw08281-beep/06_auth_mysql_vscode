@@ -9,7 +9,7 @@ export default function Home() {
       <p className="subtitle">Made with love on Vercel ✨</p>
 
       <div className="student-info">
-        <p><strong>First name:</strong> Ribbon</p>
+        <p><strong>First name:</strong> Chaw </p>
         <p><strong>Last name:</strong> Theint</p>
         <p><strong>Student ID:</strong> 6807911</p>
       </div>
