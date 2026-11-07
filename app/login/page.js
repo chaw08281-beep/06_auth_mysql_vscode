@@ -28,27 +28,32 @@ export default function LoginPage() {
 
   return (
     <div className="auth-box">
-      <h1>Login</h1>
+      <div className="big-emoji">🌸</div>
+      <h1>Welcome Back!</h1>
+      <p className="subtitle">Log in to your cute account 💕</p>
       <form onSubmit={handleLogin}>
         <input
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="Email"
+          placeholder="💌 Your email"
           required
         />
         <input
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="Password"
+          placeholder="🔑 Your password"
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Login ✨</button>
       </form>
-      {message && <p className="error">{message}</p>}
+      {message && <p className="error">😢 {message}</p>}
       <p>
-        No account yet? <Link href="/register">Register</Link>
+        No account yet? <Link href="/register">Register 💖</Link>
+      </p>
+      <p>
+        <Link href="/">🏠 Back to home</Link>
       </p>
     </div>
   );

@@ -19,15 +19,24 @@ export default function DashboardPage() {
   };
 
   if (!user) {
-    return <p>Loading...</p>;
+    return (
+      <div className="auth-box">
+        <div className="big-emoji">⏳</div>
+        <p className="subtitle">Loading your cute dashboard... 💕</p>
+      </div>
+    );
   }
 
   return (
     <div className="auth-box">
-      <h1>Dashboard</h1>
-      <p>Welcome, {user.fullname}</p>
-      <p>Email: {user.email}</p>
-      <button onClick={handleLogout}>Logout</button>
+      <div className="big-emoji">🎀</div>
+      <h1>My Dashboard</h1>
+      <p className="subtitle">You are logged in! 🎉</p>
+      <div className="student-info">
+        <p><strong>Welcome,</strong> {user.fullname} 💖</p>
+        <p><strong>Email:</strong> {user.email}</p>
+      </div>
+      <button onClick={handleLogout}>Logout 👋</button>
     </div>
   );
 }

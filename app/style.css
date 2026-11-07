@@ -1,42 +1,237 @@
-/* app/style.css — basic styles shared by the auth pages */
-body {
-  font-family: sans-serif;
-  padding: 20px;
-  background: #f5f6f8;
+/* app/style.css — SUPER CUTE pastel styles shared by every page */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
+
+:root {
+  --pink: #ff7eb6;
+  --pink-dark: #e0508f;
+  --pink-light: #ffd6e8;
+  --lavender: #e6dcff;
+  --mint: #d4f7ec;
+  --cream: #fffafc;
+  --text: #6b3a55;
 }
 
-/* centered white box, used on every page */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fredoka", "Segoe UI", sans-serif;
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  /* polka dots on a soft gradient */
+  background-color: #ffeaf3;
+  background-image:
+    radial-gradient(circle, #ffffff 3px, transparent 4px),
+    radial-gradient(circle, #ffc2dc 2px, transparent 3px),
+    linear-gradient(160deg, #ffe3ef 0%, #fff0f8 50%, #ece4ff 100%);
+  background-size: 44px 44px, 44px 44px, 100% 100%;
+  background-position: 0 0, 22px 22px, 0 0;
+}
+
+/* floating sparkles at the top and bottom of every page */
+body::before,
+body::after {
+  content: "✨ 💖 🌸 ⭐ 🎀 🍓 ✨ 💖 🌸";
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 14px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: float 3s ease-in-out infinite;
+}
+body::before { top: 6px; }
+body::after { bottom: 6px; animation-delay: 1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* centered card, used on every page */
 .auth-box {
-  max-width: 360px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  position: relative;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 32px 28px 28px;
+  background: var(--cream);
+  border: 4px solid var(--pink);
+  border-radius: 32px;
+  box-shadow:
+    0 0 0 6px var(--pink-light),
+    0 12px 30px rgba(224, 80, 143, 0.3);
+  text-align: center;
+  animation: pop 0.5s ease-out;
+}
+
+/* little hearts on the card corners */
+.auth-box::before {
+  content: "💗";
+  position: absolute;
+  top: -20px;
+  left: -14px;
+  font-size: 32px;
+  transform: rotate(-15deg);
+}
+.auth-box::after {
+  content: "💗";
+  position: absolute;
+  bottom: -20px;
+  right: -14px;
+  font-size: 32px;
+  transform: rotate(15deg);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #ff6fa8, #b57bff, #ff6fa8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--pink-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline wavy;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  text-align: left;
 }
 
 input,
 button {
-  padding: 10px;
+  padding: 13px 18px;
   font: inherit;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 3px solid var(--pink-light);
+  border-radius: 999px;
+}
+
+input {
+  background: #fff;
+  color: var(--text);
+}
+
+input::placeholder {
+  color: #d9a3bd;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px var(--lavender);
 }
 
 button {
-  background: #00758f;
-  border-color: #00758f;
+  background: linear-gradient(135deg, #ff8fc0, #ff6fa8);
+  border-color: #ff6fa8;
   color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
   cursor: pointer;
+  box-shadow: 0 5px 0 #d9457f;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 0 #d9457f;
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #d9457f;
 }
 
 /* error message below the form */
 .error {
-  color: hsl(6, 63%, 46%);
+  color: #d6336c;
+  background: #ffe0ec;
+  border: 2px dashed #ff9ec4;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-align: center;
 }
+
+/* homepage */
+.big-emoji {
+  font-size: 72px;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.subtitle {
+  margin-top: -6px;
+  color: #b77a93;
+  font-weight: 500;
+}
+
+.student-info {
+  background: linear-gradient(135deg, var(--pink-light), var(--lavender));
+  border: 3px dotted #fff;
+  border-radius: 24px;
+  padding: 10px 18px;
+  margin: 18px 0;
+  box-shadow: inset 0 0 0 3px var(--pink-light);
+}
+
+.student-info p {
+  margin: 8px 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu a {
+  display: block;
+  padding: 14px;
+  background: #fff;
+  border: 3px solid var(--pink-light);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--pink-light);
+  transition: transform 0.12s, border-color 0.12s;
+}
+
+.menu a:hover {
+  border-color: var(--pink);
+  transform: translateY(-3px) rotate(-1deg);
+  text-decoration: none;
+}
+
+.menu li:nth-child(2) a:hover { background: var(--mint); }
+.menu li:nth-child(3) a:hover { background: var(--lavender); }

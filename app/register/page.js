@@ -30,34 +30,39 @@ export default function RegisterPage() {
 
   return (
     <div className="auth-box">
-      <h1>Register</h1>
+      <div className="big-emoji">🍓</div>
+      <h1>Join Us!</h1>
+      <p className="subtitle">Create your cute account 🎀</p>
       <form onSubmit={handleRegister}>
         <input
           value={fullname}
           onChange={(event) => setFullname(event.target.value)}
-          placeholder="Full name"
+          placeholder="🧸 Your full name"
           required
         />
         <input
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="Email"
+          placeholder="💌 Your email"
           required
         />
         <input
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="Password"
+          placeholder="🔑 Password (min 6 characters)"
           minLength={6}
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit">Register 💖</button>
       </form>
-      {message && <p className="error">{message}</p>}
+      {message && <p className="error">😢 {message}</p>}
       <p>
-        Already have an account? <Link href="/login">Login</Link>
+        Already have an account? <Link href="/login">Login 🌸</Link>
+      </p>
+      <p>
+        <Link href="/">🏠 Back to home</Link>
       </p>
     </div>
   );
